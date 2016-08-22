@@ -10,6 +10,10 @@
 		96418A2B1D6A99080025C931 /* BagOfTricks.h in Headers */ = {isa = PBXBuildFile; fileRef = 96418A2A1D6A99080025C931 /* BagOfTricks.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		96418A321D6A99080025C931 /* BagOfTricks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96418A271D6A99080025C931 /* BagOfTricks.framework */; };
 		96418A371D6A99080025C931 /* BagOfTricksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96418A361D6A99080025C931 /* BagOfTricksTests.swift */; };
+		96418A421D6A9CAD0025C931 /* IntegerEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96418A411D6A9CAD0025C931 /* IntegerEnum.swift */; };
+		96418A441D6A9D030025C931 /* ActionTrampoline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96418A431D6A9D030025C931 /* ActionTrampoline.swift */; };
+		96418A461D6A9D660025C931 /* NSBlockInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96418A451D6A9D660025C931 /* NSBlockInit.swift */; };
+		96418A481D6A9E3B0025C931 /* Relay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96418A471D6A9E3B0025C931 /* Relay.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +33,10 @@
 		96418A311D6A99080025C931 /* BagOfTricksTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BagOfTricksTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		96418A361D6A99080025C931 /* BagOfTricksTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagOfTricksTests.swift; sourceTree = "<group>"; };
 		96418A381D6A99080025C931 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		96418A411D6A9CAD0025C931 /* IntegerEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntegerEnum.swift; sourceTree = "<group>"; };
+		96418A431D6A9D030025C931 /* ActionTrampoline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionTrampoline.swift; sourceTree = "<group>"; };
+		96418A451D6A9D660025C931 /* NSBlockInit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSBlockInit.swift; sourceTree = "<group>"; };
+		96418A471D6A9E3B0025C931 /* Relay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Relay.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +81,10 @@
 			children = (
 				96418A2A1D6A99080025C931 /* BagOfTricks.h */,
 				96418A2C1D6A99080025C931 /* Info.plist */,
+				96418A411D6A9CAD0025C931 /* IntegerEnum.swift */,
+				96418A431D6A9D030025C931 /* ActionTrampoline.swift */,
+				96418A451D6A9D660025C931 /* NSBlockInit.swift */,
+				96418A471D6A9E3B0025C931 /* Relay.swift */,
 			);
 			path = BagOfTricks;
 			sourceTree = "<group>";
@@ -194,6 +206,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96418A441D6A9D030025C931 /* ActionTrampoline.swift in Sources */,
+				96418A461D6A9D660025C931 /* NSBlockInit.swift in Sources */,
+				96418A421D6A9CAD0025C931 /* IntegerEnum.swift in Sources */,
+				96418A481D6A9E3B0025C931 /* Relay.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,6 +326,7 @@
 		96418A3C1D6A99080025C931 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -320,12 +337,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.wildthink.framework.BagOfTricks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		96418A3D1D6A99080025C931 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
