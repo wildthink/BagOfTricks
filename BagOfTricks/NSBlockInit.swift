@@ -16,16 +16,16 @@
 
 import Foundation
 
-protocol NSObjectBlockInitProtocol {}
+public protocol NSObjectBlockInitProtocol {}
 
-extension NSObjectBlockInitProtocol where Self: NSObject
+public extension NSObjectBlockInitProtocol where Self: NSObject
 {
-    init (setup: (Self) -> Void) {
+    public init (setup: (Self) -> Void) {
         self.init()
         setup(self)
     }
 
-    func setup(setup: (Self) -> Void) -> Self {
+    public func setup(setup: (Self) -> Void) -> Self {
         setup(self)
         return self
     }

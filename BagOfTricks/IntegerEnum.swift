@@ -11,12 +11,12 @@ import Foundation
 // https://forums.developer.apple.com/thread/4404
 // https://www.natashatherobot.com/swift-conform-to-sequence-protocol/
 
-protocol IntegerEnum {
+public protocol IntegerEnum {
     init? (rawValue: Int)
     static var firstRawValue: Int { get }
 }
 
-extension IntegerEnum {
+public extension IntegerEnum {
 
     static var firstRawValue: Int { return 0 }
 

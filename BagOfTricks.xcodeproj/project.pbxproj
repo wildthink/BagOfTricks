@@ -15,6 +15,7 @@
 		96418A461D6A9D660025C931 /* NSBlockInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96418A451D6A9D660025C931 /* NSBlockInit.swift */; };
 		96418A481D6A9E3B0025C931 /* Relay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96418A471D6A9E3B0025C931 /* Relay.swift */; };
 		9662BC9A1D74FB0F00F99FA4 /* Transducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9662BC991D74FB0F00F99FA4 /* Transducer.swift */; };
+		96AFFE1C1D7DED29005C9329 /* Broadcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AFFE1B1D7DED29005C9329 /* Broadcast.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +40,7 @@
 		96418A451D6A9D660025C931 /* NSBlockInit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSBlockInit.swift; sourceTree = "<group>"; };
 		96418A471D6A9E3B0025C931 /* Relay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Relay.swift; sourceTree = "<group>"; };
 		9662BC991D74FB0F00F99FA4 /* Transducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transducer.swift; sourceTree = "<group>"; };
+		96AFFE1B1D7DED29005C9329 /* Broadcast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Broadcast.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 				96418A451D6A9D660025C931 /* NSBlockInit.swift */,
 				96418A471D6A9E3B0025C931 /* Relay.swift */,
 				9662BC991D74FB0F00F99FA4 /* Transducer.swift */,
+				96AFFE1B1D7DED29005C9329 /* Broadcast.swift */,
 			);
 			path = BagOfTricks;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 				96418A441D6A9D030025C931 /* ActionTrampoline.swift in Sources */,
 				96418A461D6A9D660025C931 /* NSBlockInit.swift in Sources */,
 				96418A421D6A9CAD0025C931 /* IntegerEnum.swift in Sources */,
+				96AFFE1C1D7DED29005C9329 /* Broadcast.swift in Sources */,
 				9662BC9A1D74FB0F00F99FA4 /* Transducer.swift in Sources */,
 				96418A481D6A9E3B0025C931 /* Relay.swift in Sources */,
 			);

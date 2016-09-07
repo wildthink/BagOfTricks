@@ -17,9 +17,9 @@ import Foundation
 #if os(iOS)
     import UIKit
 
-    protocol UIControlActionFunctionProtocol {}
+    public protocol UIControlActionFunctionProtocol {}
 
-    class ActionTrampoline<T>: NSObject
+    public class ActionTrampoline<T>: NSObject
     {
         var action: T -> Void
 
@@ -55,9 +55,9 @@ let NSControlActionFunctionProtocolAssociatedObjectKey = UnsafeMutablePointer<In
 
     import Cocoa
 
-    protocol NSControlActionFunctionProtocol {}
+    public protocol NSControlActionFunctionProtocol {}
 
-    class ActionTrampoline<T>: NSObject
+    public class ActionTrampoline<T>: NSObject
     {
         var action: T -> Void
 

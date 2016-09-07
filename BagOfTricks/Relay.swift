@@ -8,7 +8,7 @@
 //
 import Foundation
 
-/* Examle usage
+/* Example usage
 
  protocol SomeClassOrProtocol.self) {
  func someClassOrProtocolFunction (some:Int, args:[String])
@@ -25,17 +25,17 @@ import Foundation
  */
 
 
-protocol Relay
+public protocol Relay
 {
-    func relay <T> (type: T.Type, from: Any?, @noescape call: (T) -> Void) -> Void
+    func relay <T> (type: T.Type, from: Any?, @noescape call: (T) -> Void)
 
     func nextRelay() -> Relay?
     func willPerformRelay <T> (type: T.Type, sender: Any) -> Bool
 }
 
-extension Relay {
+public extension Relay {
 
-    func relay <T> (type: T.Type, from: Any? = nil, @noescape call: (T) -> Void) -> Void
+    public func relay <T> (type: T.Type, from: Any? = nil, @noescape call: (T) -> Void)
     {
         if willPerformRelay(type, sender: from) {
             if let target = self as? T {
@@ -47,10 +47,10 @@ extension Relay {
         }
     }
 
-    func nextRelay() -> Relay? {
+    public func nextRelay() -> Relay? {
         return nil
     }
-    func willPerformRelay <T> (type: T.Type, sender: Any) -> Bool {
+    public func willPerformRelay <T> (type: T.Type, sender: Any) -> Bool {
         return self is T
     }
 }
@@ -67,24 +67,26 @@ extension Relay {
     public typealias ApplicationDelegate = NSApplicationDelegate
 #endif
 
-extension Relay where Self: Application {
-    func  nextRelay() -> Relay? {
+public extension Relay where Self: Application {
+    public func  nextRelay() -> Relay? {
         let next = nextResponder() ?? Application.sharedApplication()
         return next as? Relay
     }
 }
 
 extension Relay where Self: ApplicationDelegate {
-    func  nextRelay() -> Relay? {
+    public func nextRelay() -> Relay? {
         return nil
     }
 }
 
-extension Relay where Self: Responder
+public extension Relay where Self: Responder
 {
-    func  nextRelay() -> Relay? {
+    public func nextRelay() -> Relay? {
         let next = nextResponder() ?? Application.sharedApplication()
         return next as? Relay
     }
 }
+
+extension UIResponder: Relay {}
 
