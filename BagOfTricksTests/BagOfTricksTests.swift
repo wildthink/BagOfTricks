@@ -2,7 +2,7 @@
 //  BagOfTricksTests.swift
 //  BagOfTricksTests
 //
-//  Created by Jason Jobe on 8/21/16.
+//  Created by Jason Jobe on 9/13/16.
 //  Copyright © 2016 WildThink. All rights reserved.
 //
 
@@ -28,7 +28,7 @@ class BagOfTricksTests: XCTestCase {
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
-        self.measureBlock {
+        self.measure {
             // Put the code you want to measure the time of here.
         }
     }

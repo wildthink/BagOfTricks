@@ -25,7 +25,7 @@ public extension NSObjectBlockInitProtocol where Self: NSObject
         setup(self)
     }
 
-    public func setup(setup: (Self) -> Void) -> Self {
+    public func setup(_ setup: (Self) -> Void) -> Self {
         setup(self)
         return self
     }

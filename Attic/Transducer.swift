@@ -40,11 +40,11 @@ func |> <A, B> (x: A, f: (A) -> B) -> B {
 }
 
 // (f |> g)(x) = f(g(x))
-func |> <A, B, C> (f: (A) -> B, g: (B) -> C) -> (A) -> C {
+func |> <A, B, C> (f: @escaping (A) -> B, g: @escaping (B) -> C) -> (A) -> C {
     return { g(f($0)) }
 }
 
-func measure(title: String!, call: () -> Void) {
+func measure(_ title: String!, call: () -> Void) {
     let startTime = CACurrentMediaTime()
     call()
     let endTime = CACurrentMediaTime()
@@ -100,7 +100,7 @@ func measure(title: String!, call: () -> Void) {
  </html>
 
  */
-func map <A, B> (f: (A) -> B) -> ([A]) -> [B] {
+func map <A, B> (_ f: @escaping (A) -> B) -> ([A]) -> [B] {
     return { $0.map(f) }
     //  return { map($0, f) }
 }
@@ -123,9 +123,9 @@ func map <A, B> (f: (A) -> B) -> ([A]) -> [B] {
 // where E is  S.Generator.Element
 
 //func reduce <T, S : CollectionType> (seq: S, initial: T, combine: (T, T) throws -> T) throws -> T {
-func reduce<S: SequenceType>
-    (seq: S, _ initial: S.Generator.Element, combine: (S.Generator.Element, S.Generator.Element) throws -> S.Generator.Element) rethrows -> S.Generator.Element {
-    return try seq.reduce(initial, combine: combine)
+func reduce<S: Sequence>
+    (_ seq: S, _ initial: S.Iterator.Element, combine: (S.Iterator.Element, S.Iterator.Element) throws -> S.Iterator.Element) rethrows -> S.Iterator.Element {
+    return try seq.reduce(initial, combine)
 }
 
 //func reduce <A, B> (f: )
@@ -174,7 +174,7 @@ func reduce<S: SequenceType>
  </html>
 
  */
-func filter <A> (p: (A) -> Bool) -> ([A]) -> [A] {
+func filter <A> (_ p: @escaping (A) -> Bool) -> ([A]) -> [A] {
     return {xs in
         var ys = [A]()
         for x in xs {
@@ -207,11 +207,11 @@ func filter <A> (p: (A) -> Bool) -> ([A]) -> [A] {
 
  */
 
-func square (n: Int) -> Int {
+func square (_ n: Int) -> Int {
     return n * n
 }
 
-func incr (n: Int) -> Int {
+func incr (_ n: Int) -> Int {
     return n + 1
 }
 
@@ -261,7 +261,7 @@ func incr (n: Int) -> Int {
  */
 // Simple function to check primality of an integer. Details of this
 // function aren't important, but it works.
-func isPrime (p: Int) -> Bool {
+func isPrime (_ p: Int) -> Bool {
     if p == 2 { return true }
     for i in 2...Int(sqrtf(Float(p))) {
         if p % i == 0 { return false }
@@ -293,13 +293,13 @@ func isPrime (p: Int) -> Bool {
  </html>
 
  */
-func map_from_reduce <A, B> (f: (A) -> B) -> ([A]) -> [B] {
+func map_from_reduce <A, B> (_ f: @escaping (A) -> B) -> ([A]) -> [B] {
     return {xs in
         return xs.reduce([]) { accum, x in accum + [f(x)] }
     }
 }
 
-func filter_from_reduce <A> (p: (A) -> Bool) -> ([A]) -> [A] {
+func filter_from_reduce <A> (_ p: @escaping (A) -> Bool) -> ([A]) -> [A] {
     return {xs in
         return xs.reduce([]) { accum, x in
             return p(x) ? accum + [x] : accum
@@ -307,7 +307,7 @@ func filter_from_reduce <A> (p: (A) -> Bool) -> ([A]) -> [A] {
     }
 }
 
-func take_from_reduce <A> (n: Int) -> ([A]) -> [A] {
+func take_from_reduce <A> (_ n: Int) -> ([A]) -> [A] {
     return {xs in
         return xs.reduce([]) { accum, x in
             return accum.count < n ? accum + [x] : accum
@@ -337,7 +337,7 @@ func take_from_reduce <A> (n: Int) -> ([A]) -> [A] {
  </html>
 
  */
-func mapping <A, B, C> (f: (A) -> B) -> ((C, B) -> C) -> ((C, A) -> C) {
+func mapping <A, B, C> (_ f: @escaping (A) -> B) -> ((C, B) -> C) -> ((C, A) -> C) {
     return { reducer in
         return { accum, x in reducer(accum, f(x)) }
     }
@@ -365,7 +365,7 @@ func mapping <A, B, C> (f: (A) -> B) -> ((C, B) -> C) -> ((C, A) -> C) {
  </html>
 
  */
-func filtering <A, C> (p: (A) -> Bool) -> ((C, A) -> C) -> (C, A) -> C {
+func filtering <A, C> (_ p: @escaping (A) -> Bool) -> ((C, A) -> C) -> (C, A) -> C {
     return { reducer in
         return { accum, x in
             return p(x) ? reducer(accum, x) : accum
@@ -395,7 +395,7 @@ func filtering <A, C> (p: (A) -> Bool) -> ((C, A) -> C) -> (C, A) -> C {
  </html>
 
  */
-func append <A> (xs: [A], x: A) -> [A] {
+func append <A> (_ xs: [A], x: A) -> [A] {
     return xs + [x]
 }
 
@@ -535,7 +535,7 @@ func append <A> (xs: [A], x: A) -> [A] {
  </html>
 
  */
-func taking <A, C> (n: Int) -> (([C], A) -> [C]) -> (([C], A) -> [C]) {
+func taking <A, C> (_ n: Int) -> (([C], A) -> [C]) -> (([C], A) -> [C]) {
     return { reducer in
         return { accum, x in
             return accum.count < n ? reducer(accum, x) : accum
@@ -565,11 +565,11 @@ func taking <A, C> (n: Int) -> (([C], A) -> [C]) -> (([C], A) -> [C]) {
  </html>
 
  */
-func isTwinPrime (p: Int) -> Bool {
+func isTwinPrime (_ p: Int) -> Bool {
     return isPrime(p) && isPrime(p+2)
 }
 
-func pr <T> (value: T) -> Bool {
+func pr <T> (_ value: T) -> Bool {
     print (value)
     return true
 }

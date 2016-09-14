@@ -2,7 +2,7 @@
 //  BagOfTricks.h
 //  BagOfTricks
 //
-//  Created by Jason Jobe on 9/13/16.
+//  Created by Jason Jobe on 8/21/16.
 //  Copyright © 2016 WildThink. All rights reserved.
 //
 

@@ -20,10 +20,10 @@ public extension IntegerEnum {
 
     static var firstRawValue: Int { return 0 }
 
-    static var sequence: AnyGenerator<Self> {
+    static var sequence: AnyIterator<Self> {
         var lastIteration = firstRawValue
 
-        return AnyGenerator {
+        return AnyIterator {
             lastIteration += 1
             return Self(rawValue: lastIteration - 1)
         }

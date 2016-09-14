@@ -27,7 +27,7 @@
 
     public extension UIViewController {
 
-        public func broadcast <T> (type: T.Type, from sender: Any = self, @noescape fn: (T) -> Void) -> Void
+        public func broadcast <T> (_ type: T.Type, from sender: Any = self, fn: (T) -> Void) -> Void
         {
             if willPerformBroadcast (type, sender: sender) {
                 if let target = self as? T {
@@ -40,7 +40,7 @@
             }
         }
 
-        public func willPerformBroadcast <T> (type: T.Type, sender: Any) -> Bool {
+        public func willPerformBroadcast <T> (_ type: T.Type, sender: Any) -> Bool {
             guard self != (sender as? UIViewController) else { return false }
             return self is T
         }
@@ -51,21 +51,21 @@
 
     public extension NSViewController {
 
-        public func broadcast <T> (type: T.Type, from sender: Any = self, @noescape fn: (T) -> Void) -> Void
+        public func broadcast <T> (type: T.Type, from sender: Any = self, fn: (T) -> Void) -> Void
         {
-            if willPerformBroadcast (type, sender: sender) {
+            if willPerformBroadcast (type: type, sender: sender) {
                 if let target = self as? T {
                     fn (target)
                 }
             }
             for controller in childViewControllers {
                 guard controller != self else { continue }
-                controller.broadcast(type, from: sender, fn: fn)
+                controller.broadcast(type: type, from: sender, fn: fn)
             }
         }
 
         public func willPerformBroadcast <T> (type: T.Type, sender: Any) -> Bool {
-            guard self != (sender as? UIViewController) else { return false }
+            guard self != (sender as? NSViewController) else { return false }
             return self is T
         }
         

@@ -19,31 +19,31 @@ import Foundation
 
     public protocol UIControlActionFunctionProtocol {}
 
-    public class ActionTrampoline<T>: NSObject
+    open class ActionTrampoline<T>: NSObject
     {
-        var action: T -> Void
+        var action: (T) -> Void
 
-        init(action: T -> Void) {
+        init(action: @escaping (T) -> Void) {
             self.action = action
         }
 
-        @objc func performAction(sender: UIControl) {
+        @objc func performAction(_ sender: UIControl) {
             action(sender as! T)
         }
     }
 
-let NSControlActionFunctionProtocolAssociatedObjectKey = UnsafeMutablePointer<Int8>.alloc(1)
+let NSControlActionFunctionProtocolAssociatedObjectKey = UnsafeMutablePointer<Int8>.allocate(capacity: 1)
 
     extension UIControlActionFunctionProtocol where Self: UIControl
     {
-        func addAction(events: UIControlEvents, _ action: Self -> Void) {
+        func addAction(_ events: UIControlEvents, _ action: @escaping (Self) -> Void) {
             let trampoline = ActionTrampoline(action: action)
             let call = #selector(trampoline.performAction(_:))
-            self.addTarget(trampoline, action: call, forControlEvents: events)
+            self.addTarget(trampoline, action: call, for: events)
             objc_setAssociatedObject(self, NSControlActionFunctionProtocolAssociatedObjectKey, trampoline, .OBJC_ASSOCIATION_RETAIN)
         }
 
-        func setup(setup: (Self) -> Void) -> Self {
+        func setup(_ setup: (Self) -> Void) -> Self {
             setup(self)
             return self
         }
@@ -70,7 +70,7 @@ let NSControlActionFunctionProtocolAssociatedObjectKey = UnsafeMutablePointer<In
         }
     }
 
-let NSControlActionFunctionProtocolAssociatedObjectKey = UnsafeMutablePointer<Int8>.alloc(1)
+let NSControlActionFunctionProtocolAssociatedObjectKey = UnsafeMutablePointer<Int8>.allocate(capacity: 1)
 
     extension NSControlActionFunctionProtocol where Self: NSControl
     {

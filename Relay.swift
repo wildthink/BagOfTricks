@@ -27,15 +27,15 @@ import Foundation
 
 public protocol Relay
 {
-    func relay <T> (type: T.Type, from: Any?, @noescape call: (T) -> Void)
+    func relay <T> (_ type: T.Type, from: Any?, call: (T) -> Void)
 
     func nextRelay() -> Relay?
-    func willPerformRelay <T> (type: T.Type, sender: Any) -> Bool
+    func willPerformRelay <T> (_ type: T.Type, sender: Any) -> Bool
 }
 
 public extension Relay {
 
-    public func relay <T> (type: T.Type, from: Any? = nil, @noescape call: (T) -> Void)
+    public func relay <T> (_ type: T.Type, from: Any? = nil, call: (T) -> Void)
     {
         if willPerformRelay(type, sender: from) {
             if let target = self as? T {
@@ -50,7 +50,7 @@ public extension Relay {
     public func nextRelay() -> Relay? {
         return nil
     }
-    public func willPerformRelay <T> (type: T.Type, sender: Any) -> Bool {
+    public func willPerformRelay <T> (_ type: T.Type, sender: Any) -> Bool {
         return self is T
     }
 }
@@ -69,8 +69,8 @@ public extension Relay {
 
 public extension Relay where Self: Application {
     public func  nextRelay() -> Relay? {
-        let next = nextResponder() ?? Application.sharedApplication()
-        return next as? Relay
+        let nextRelay = next ?? Application.shared
+        return nextRelay
     }
 }
 
@@ -83,8 +83,8 @@ extension Relay where Self: ApplicationDelegate {
 public extension Relay where Self: Responder
 {
     public func nextRelay() -> Relay? {
-        let next = nextResponder() ?? Application.sharedApplication()
-        return next as? Relay
+        let nextRelay = next ?? Application.shared
+        return nextRelay
     }
 }
 
