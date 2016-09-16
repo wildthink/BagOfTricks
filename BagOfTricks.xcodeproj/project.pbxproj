@@ -10,13 +10,11 @@
 		9651821C1D88D17E001998CC /* BagOfTricks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 965182121D88D17E001998CC /* BagOfTricks.framework */; };
 		965182211D88D17E001998CC /* BagOfTricksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965182201D88D17E001998CC /* BagOfTricksTests.swift */; };
 		965182231D88D17E001998CC /* BagOfTricks.h in Headers */ = {isa = PBXBuildFile; fileRef = 965182151D88D17E001998CC /* BagOfTricks.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		965182331D88D1A7001998CC /* ActionTrampoline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9651822C1D88D1A7001998CC /* ActionTrampoline.swift */; };
-		965182341D88D1A7001998CC /* BagOfTricks.h in Headers */ = {isa = PBXBuildFile; fileRef = 9651822D1D88D1A7001998CC /* BagOfTricks.h */; };
-		965182351D88D1A7001998CC /* Broadcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9651822E1D88D1A7001998CC /* Broadcast.swift */; };
-		965182361D88D1A7001998CC /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9651822F1D88D1A7001998CC /* Info.plist */; };
-		965182371D88D1A7001998CC /* IntegerEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965182301D88D1A7001998CC /* IntegerEnum.swift */; };
-		965182381D88D1A7001998CC /* NSBlockInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965182311D88D1A7001998CC /* NSBlockInit.swift */; };
-		965182391D88D1A7001998CC /* Relay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965182321D88D1A7001998CC /* Relay.swift */; };
+		96AC247C1D8B769300C609A5 /* ActionTrampoline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AC24771D8B769300C609A5 /* ActionTrampoline.swift */; };
+		96AC247D1D8B769300C609A5 /* Broadcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AC24781D8B769300C609A5 /* Broadcast.swift */; };
+		96AC247E1D8B769300C609A5 /* IntegerEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AC24791D8B769300C609A5 /* IntegerEnum.swift */; };
+		96AC247F1D8B769300C609A5 /* NSBlockInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AC247A1D8B769300C609A5 /* NSBlockInit.swift */; };
+		96AC24801D8B769300C609A5 /* Relay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AC247B1D8B769300C609A5 /* Relay.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,13 +34,11 @@
 		9651821B1D88D17E001998CC /* BagOfTricksTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BagOfTricksTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		965182201D88D17E001998CC /* BagOfTricksTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagOfTricksTests.swift; sourceTree = "<group>"; };
 		965182221D88D17E001998CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9651822C1D88D1A7001998CC /* ActionTrampoline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionTrampoline.swift; sourceTree = "<group>"; };
-		9651822D1D88D1A7001998CC /* BagOfTricks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BagOfTricks.h; sourceTree = "<group>"; };
-		9651822E1D88D1A7001998CC /* Broadcast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Broadcast.swift; sourceTree = "<group>"; };
-		9651822F1D88D1A7001998CC /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		965182301D88D1A7001998CC /* IntegerEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntegerEnum.swift; sourceTree = "<group>"; };
-		965182311D88D1A7001998CC /* NSBlockInit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSBlockInit.swift; sourceTree = "<group>"; };
-		965182321D88D1A7001998CC /* Relay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Relay.swift; sourceTree = "<group>"; };
+		96AC24771D8B769300C609A5 /* ActionTrampoline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActionTrampoline.swift; path = BagOfTricks/ActionTrampoline.swift; sourceTree = "<group>"; };
+		96AC24781D8B769300C609A5 /* Broadcast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Broadcast.swift; path = BagOfTricks/Broadcast.swift; sourceTree = "<group>"; };
+		96AC24791D8B769300C609A5 /* IntegerEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IntegerEnum.swift; path = BagOfTricks/IntegerEnum.swift; sourceTree = "<group>"; };
+		96AC247A1D8B769300C609A5 /* NSBlockInit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSBlockInit.swift; path = BagOfTricks/NSBlockInit.swift; sourceTree = "<group>"; };
+		96AC247B1D8B769300C609A5 /* Relay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Relay.swift; path = BagOfTricks/Relay.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,13 +63,11 @@
 		965182081D88D17E001998CC = {
 			isa = PBXGroup;
 			children = (
-				9651822C1D88D1A7001998CC /* ActionTrampoline.swift */,
-				9651822D1D88D1A7001998CC /* BagOfTricks.h */,
-				9651822E1D88D1A7001998CC /* Broadcast.swift */,
-				9651822F1D88D1A7001998CC /* Info.plist */,
-				965182301D88D1A7001998CC /* IntegerEnum.swift */,
-				965182311D88D1A7001998CC /* NSBlockInit.swift */,
-				965182321D88D1A7001998CC /* Relay.swift */,
+				96AC24771D8B769300C609A5 /* ActionTrampoline.swift */,
+				96AC24781D8B769300C609A5 /* Broadcast.swift */,
+				96AC24791D8B769300C609A5 /* IntegerEnum.swift */,
+				96AC247A1D8B769300C609A5 /* NSBlockInit.swift */,
+				96AC247B1D8B769300C609A5 /* Relay.swift */,
 				965182141D88D17E001998CC /* BagOfTricks */,
 				9651821F1D88D17E001998CC /* BagOfTricksTests */,
 				965182131D88D17E001998CC /* Products */,
@@ -114,7 +108,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				965182341D88D1A7001998CC /* BagOfTricks.h in Headers */,
 				965182231D88D17E001998CC /* BagOfTricks.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -204,7 +197,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				965182361D88D1A7001998CC /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,11 +214,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				965182381D88D1A7001998CC /* NSBlockInit.swift in Sources */,
-				965182371D88D1A7001998CC /* IntegerEnum.swift in Sources */,
-				965182331D88D1A7001998CC /* ActionTrampoline.swift in Sources */,
-				965182351D88D1A7001998CC /* Broadcast.swift in Sources */,
-				965182391D88D1A7001998CC /* Relay.swift in Sources */,
+				96AC247F1D8B769300C609A5 /* NSBlockInit.swift in Sources */,
+				96AC247E1D8B769300C609A5 /* IntegerEnum.swift in Sources */,
+				96AC247C1D8B769300C609A5 /* ActionTrampoline.swift in Sources */,
+				96AC247D1D8B769300C609A5 /* Broadcast.swift in Sources */,
+				96AC24801D8B769300C609A5 /* Relay.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,6 +426,7 @@
 				965182281D88D17E001998CC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		965182291D88D17E001998CC /* Build configuration list for PBXNativeTarget "BagOfTricksTests" */ = {
 			isa = XCConfigurationList;
@@ -442,6 +435,7 @@
 				9651822B1D88D17E001998CC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
