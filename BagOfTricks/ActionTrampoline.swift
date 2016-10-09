@@ -4,6 +4,7 @@
 //
 //  Created by Jason Jobe on 3/17/16.
 //  Copyright © 2016 WildThink. All rights reserved.
+
 //
 //  https://gist.githubusercontent.com/wildthink/677308084ab364044c76/raw/f713efca9ec6ca9b56c4405bd82ae33b1db98ec7/ActionTrampoline.swift
 //

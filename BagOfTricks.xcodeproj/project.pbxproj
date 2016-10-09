@@ -15,6 +15,9 @@
 		96AC247E1D8B769300C609A5 /* IntegerEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AC24791D8B769300C609A5 /* IntegerEnum.swift */; };
 		96AC247F1D8B769300C609A5 /* NSBlockInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AC247A1D8B769300C609A5 /* NSBlockInit.swift */; };
 		96AC24801D8B769300C609A5 /* Relay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AC247B1D8B769300C609A5 /* Relay.swift */; };
+		96DE2EAA1DA9E070005E1EF0 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DE2EA71DA9E070005E1EF0 /* Array+Extensions.swift */; };
+		96DE2EAB1DA9E070005E1EF0 /* Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DE2EA81DA9E070005E1EF0 /* Publisher.swift */; };
+		96DE2EAC1DA9E070005E1EF0 /* TimeIntervalExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DE2EA91DA9E070005E1EF0 /* TimeIntervalExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +42,9 @@
 		96AC24791D8B769300C609A5 /* IntegerEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IntegerEnum.swift; path = BagOfTricks/IntegerEnum.swift; sourceTree = "<group>"; };
 		96AC247A1D8B769300C609A5 /* NSBlockInit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSBlockInit.swift; path = BagOfTricks/NSBlockInit.swift; sourceTree = "<group>"; };
 		96AC247B1D8B769300C609A5 /* Relay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Relay.swift; path = BagOfTricks/Relay.swift; sourceTree = "<group>"; };
+		96DE2EA71DA9E070005E1EF0 /* Array+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Array+Extensions.swift"; path = "BagOfTricks/Array+Extensions.swift"; sourceTree = "<group>"; };
+		96DE2EA81DA9E070005E1EF0 /* Publisher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Publisher.swift; path = BagOfTricks/Publisher.swift; sourceTree = "<group>"; };
+		96DE2EA91DA9E070005E1EF0 /* TimeIntervalExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeIntervalExtension.swift; path = BagOfTricks/TimeIntervalExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +69,9 @@
 		965182081D88D17E001998CC = {
 			isa = PBXGroup;
 			children = (
+				96DE2EA71DA9E070005E1EF0 /* Array+Extensions.swift */,
+				96DE2EA81DA9E070005E1EF0 /* Publisher.swift */,
+				96DE2EA91DA9E070005E1EF0 /* TimeIntervalExtension.swift */,
 				96AC24771D8B769300C609A5 /* ActionTrampoline.swift */,
 				96AC24781D8B769300C609A5 /* Broadcast.swift */,
 				96AC24791D8B769300C609A5 /* IntegerEnum.swift */,
@@ -215,10 +224,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				96AC247F1D8B769300C609A5 /* NSBlockInit.swift in Sources */,
+				96DE2EAA1DA9E070005E1EF0 /* Array+Extensions.swift in Sources */,
 				96AC247E1D8B769300C609A5 /* IntegerEnum.swift in Sources */,
 				96AC247C1D8B769300C609A5 /* ActionTrampoline.swift in Sources */,
 				96AC247D1D8B769300C609A5 /* Broadcast.swift in Sources */,
 				96AC24801D8B769300C609A5 /* Relay.swift in Sources */,
+				96DE2EAB1DA9E070005E1EF0 /* Publisher.swift in Sources */,
+				96DE2EAC1DA9E070005E1EF0 /* TimeIntervalExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
