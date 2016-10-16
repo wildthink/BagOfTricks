@@ -47,9 +47,10 @@ public class PubAction<T: AnyObject>: NSObject
     @objc func publish(from publisher: Publisher) {
         guard let target = target else {
             publisher.remove (self as? PubAction<AnyObject>)
+//            publisher.remove(self)
             return
         }
-        action(publisher, target as! T)
+        action(publisher, target)
     }
 }
 

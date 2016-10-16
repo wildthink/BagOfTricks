@@ -37,7 +37,7 @@ public extension Relay {
 
     public func relay <T> (_ type: T.Type, from: Any? = nil, call: (T) -> Void)
     {
-        if willPerformRelay(type, sender: from) {
+        if willPerformRelay(type, sender: from as Any) {
             if let target = self as? T {
                 call (target)
             }
