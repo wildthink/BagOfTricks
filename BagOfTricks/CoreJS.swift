@@ -13,6 +13,7 @@ public enum LogLevel { case debug }
 
 public func log(_ level: LogLevel, _ message: String) {
     //    Logger.defaultInstance.log(level, message: message)
+    Swift.print (level, message)
 }
 
 public enum CoreJSError: Error {
@@ -37,6 +38,7 @@ open class CoreJS: NSObject {
             }
 
             context.exceptionHandler = { context, exception in
+                context?.exception = exception
                 log(.debug, "JSError = \(exception)")
             }
         }
@@ -62,6 +64,19 @@ open class CoreJS: NSObject {
         set {
             context.setObject(newValue, forKeyedSubscript: key as (NSCopying & NSObjectProtocol)!)
         }
+    }
+
+    /**
+     Load JS from a file at the given path.
+
+     - parameter filePath: Path to the JS file.
+     */
+    open func load(resource: String, bundle: Bundle? = nil) throws {
+        let bundle = bundle ?? Bundle.main
+        guard let path = bundle.path(forResource: resource, ofType: "js") else {
+            throw CoreJSError.fileDoesNotExist
+        }
+        try loadFromFile(path)
     }
 
     /**
@@ -117,15 +132,20 @@ open class CoreJS: NSObject {
         return result
     }
 
-    open func evaluate(_ script: String) -> Any {
+    open func evaluate(_ script: String) -> Any?
+    {
         if let result = context.evaluateScript(script) {
+
+            if (context.exception) != nil {
+                return nil
+            }
             if result.isUndefined { return "<undefined>" }
             if result.isNull      { return "<null>" }
             if result.isString    { return result.toString() }
             return result.toObject()
         }
         else {
-            return "nil"
+            return nil
         }
     }
 
