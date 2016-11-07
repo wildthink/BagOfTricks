@@ -23,8 +23,16 @@ public enum CoreJSError: Error {
     case failedToEvaluateScript
 }
 
-class JSBridge: NSObject {
-//    open var outputHandler: OutputHandler? = nil
+@objc protocol ConsoleJS : JSExport
+{
+    func log (_ msg: Any?)
+}
+
+class JSBridge: NSObject, ConsoleJS {
+    func log (_ msg: Any?) {
+        guard let msg = msg else { return }
+        Swift.print (msg)
+    }
 }
 
 @objc(CoreJS)
@@ -48,18 +56,18 @@ open class CoreJS: NSObject {
 
     public override init() {
         context = JSContext(virtualMachine: JSVirtualMachine())
-        context.setObject(JSBridge(), forKeyedSubscript: "bridge" as (NSCopying & NSObjectProtocol))
+        context.setObject(JSBridge(), forKeyedSubscript: "console" as (NSCopying & NSObjectProtocol))
     }
 
     public func reset() {
         context = JSContext(virtualMachine: JSVirtualMachine())
     }
 
-    open subscript(key: String) -> JSValue? {
+    open subscript(key: String) -> Any? {
         get {
             guard let result = context.objectForKeyedSubscript(key) else { return nil }
             if result.isNull || result.isUndefined { return nil }
-            return result
+            return result.toAny()
         }
         set {
             context.setObject(newValue, forKeyedSubscript: key as (NSCopying & NSObjectProtocol)!)
@@ -139,10 +147,11 @@ open class CoreJS: NSObject {
             if (context.exception) != nil {
                 return nil
             }
-            if result.isUndefined { return "<undefined>" }
-            if result.isNull      { return "<null>" }
-            if result.isString    { return result.toString() }
-            return result.toObject()
+//            if result.isUndefined { return "<undefined>" }
+//            if result.isNull      { return "<null>" }
+//            if result.isString    { return result.toString() }
+//            return result.toObject()
+            return result.toAny()
         }
         else {
             return nil
@@ -180,6 +189,16 @@ open class CoreJS: NSObject {
 // MARL: - Console API
 
 @objc
+public enum ConsoleOutputType: Int {
+    case log = 0
+    case info = 1
+    case error = 2
+    case warning = 3
+    case assert = 4
+    case timestamp = 5
+}
+
+@objc
 public protocol JSConsole: JSExport {
 
     func log (arguments: [AnyObject])
@@ -187,46 +206,65 @@ public protocol JSConsole: JSExport {
     func error (arguments: [AnyObject])
 }
 
-/*
- public extension Bridge.Liaison: JSConsole
- {
- func log (arguments: [AnyObject])   { output(.log, arguments: arguments) }
- func warn (arguments: [AnyObject])  { output(.warning, arguments: arguments) }
- func error (arguments: [AnyObject]) { output(.error, arguments: arguments) }
 
- open func output(_ type: ConsoleOutputType, arguments: [AnyObject]) {
- var output: String = ""
+class Bridge: NSObject, JSConsole
+{
+    var outputHandler: ((ConsoleOutputType, String) -> Void)?
 
- switch type {
- case .error: output += "⛔️"
- case .warning: output += "⚠️"
+    func log (arguments: [AnyObject])   { output(.log, arguments: arguments) }
+    func warn (arguments: [AnyObject])  { output(.warning, arguments: arguments) }
+    func error (arguments: [AnyObject]) { output(.error, arguments: arguments) }
 
- default:
- break
+    open func output(_ type: ConsoleOutputType, arguments: [AnyObject])
+    {
+     var output: String = ""
+
+     switch type {
+     case .error: output += "⛔️"
+     case .warning: output += "⚠️"
+
+     default:
+     break
+     }
+
+     for i in 0..<arguments.count {
+     if let stringValue = arguments[i] as? String {
+     output += stringValue
+     } else if let jsValue = arguments[i] as? JSValue {
+     output += jsValue.toString()
+     } else if let dictValue = arguments[i] as? NSDictionary {
+     output += String(format: "%@", dictValue)
+     }
+
+     if i != arguments.count - 1 {
+     output += " "
+     }
+     }
+
+     if let handler = outputHandler {
+     handler(type, output)
+     } else {
+     print(output)
+     }
+     }
  }
 
- for i in 0..<arguments.count {
- if let stringValue = arguments[i] as? String {
- output += stringValue
- } else if let jsValue = arguments[i] as? JSValue {
- output += jsValue.toString()
- } else if let dictValue = arguments[i] as? NSDictionary {
- output += String(format: "%@", dictValue)
- }
 
- if i != arguments.count - 1 {
- output += " "
- }
- }
+public extension JSValue
+{
+    func toAny() -> Any? {
+        if isUndefined { return nil }
+        if isNull      { return nil }
+        if isString    { return toString() }
+        if isBoolean   { return toBool() }
+        if #available(iOS 9.0, *) {
+            if self.isArray { return toArray() }
+        }
+        // else
+        return toObject()
 
- if let handler = outputHandler {
- handler(type, output)
- } else {
- print(output)
- }
- }
- }
- */
+    }
+}
 
 // MARK: - Exports API
 
