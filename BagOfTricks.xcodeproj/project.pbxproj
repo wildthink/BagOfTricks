@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9645BD731E24661E0029B597 /* SpeechController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9645BD711E24661E0029B597 /* SpeechController.swift */; };
+		9645BD741E24661E0029B597 /* SpeechRecordingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9645BD721E24661E0029B597 /* SpeechRecordingControl.swift */; };
 		9651821C1D88D17E001998CC /* BagOfTricks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 965182121D88D17E001998CC /* BagOfTricks.framework */; };
 		965182211D88D17E001998CC /* BagOfTricksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965182201D88D17E001998CC /* BagOfTricksTests.swift */; };
 		965182231D88D17E001998CC /* BagOfTricks.h in Headers */ = {isa = PBXBuildFile; fileRef = 965182151D88D17E001998CC /* BagOfTricks.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -32,6 +34,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9645BD711E24661E0029B597 /* SpeechController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SpeechController.swift; path = BagOfTricks/SpeechController.swift; sourceTree = "<group>"; };
+		9645BD721E24661E0029B597 /* SpeechRecordingControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SpeechRecordingControl.swift; path = BagOfTricks/SpeechRecordingControl.swift; sourceTree = "<group>"; };
 		965182121D88D17E001998CC /* BagOfTricks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BagOfTricks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		965182151D88D17E001998CC /* BagOfTricks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BagOfTricks.h; sourceTree = "<group>"; };
 		965182161D88D17E001998CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -71,6 +75,8 @@
 		965182081D88D17E001998CC = {
 			isa = PBXGroup;
 			children = (
+				9645BD711E24661E0029B597 /* SpeechController.swift */,
+				9645BD721E24661E0029B597 /* SpeechRecordingControl.swift */,
 				969881001DB2832A009E5B8F /* CoreJS.swift */,
 				96DE2EA71DA9E070005E1EF0 /* Array+Extensions.swift */,
 				96DE2EA81DA9E070005E1EF0 /* Publisher.swift */,
@@ -235,6 +241,8 @@
 				96AC24801D8B769300C609A5 /* Relay.swift in Sources */,
 				96DE2EAB1DA9E070005E1EF0 /* Publisher.swift in Sources */,
 				96DE2EAC1DA9E070005E1EF0 /* TimeIntervalExtension.swift in Sources */,
+				9645BD741E24661E0029B597 /* SpeechRecordingControl.swift in Sources */,
+				9645BD731E24661E0029B597 /* SpeechController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
