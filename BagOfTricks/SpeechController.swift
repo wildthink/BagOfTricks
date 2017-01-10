@@ -27,8 +27,11 @@ open class SpeechController {
     private let audioEngine = AVAudioEngine()
     
     /// The delegate of the receiver.
-    var delegate: SpeechControllerDelegate?
-    
+    public var delegate: SpeechControllerDelegate?
+
+    public init () {
+    }
+
     /// Begins a new speech recording session.
     ///
     /// - Throws: Errors thrown by the creation of the speech recognition session
